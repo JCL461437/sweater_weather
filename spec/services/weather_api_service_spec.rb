@@ -2,24 +2,36 @@ require 'rails_helper'
 
 RSpec.describe WeatherApiService do
   it 'can #get_current_weather' do
-    json_response = File.read('spec/fixtures/slc_lat_long.json')
-    stub_request(:get, "/geocoding/v1/address?key=#{Rails.application.credentials.map_quest[:key]}&location=Salt Lake City, UT").to_return(status: 200, body: json_response)
+    json_response = File.read('spec/fixtures/current_slc_weather.json')
+    stub_request(:get, "/v1/current.json?key=#{Rails.application.credentials.weather[:key]}&q=40.76031,-111.88822").to_return(status: 200, body: json_response)
     query = JSON.parse(json_response, symbolize_names: true)
     # query = MapQuestApiService.get_lat_long("Salt Lake City, UT")
   
-    expect(query).to be_a Hash
+    expect(query).to be_a(Hash)
 
-    expect(query).to have_key(:info)
-    expect(query[:info]).to be_a(Hash)
-    expect(query[:info][:statuscode]).to eq(0)
+    expect(query).to have_key(:location)
+    expect(query[:location]).to be_a(Hash)
 
-    expect(query).to have_key(:results)
-    expect(query[:results]).to be_a(Array)
+    expect(query[:location][:name]).to eq("Salt Lake City")
+    expect(query[:location][:region]).to eq("Utah")
+    expect(query[:location][:lat]).to eq(40.76)
+    expect(query[:location][:lon]).to eq(-111.89)
+    expect(query[:location][:localtime]).to eq("2024-09-22 13:31")
 
-    expect(query[:results][0][:providedLocation]).to be_a(Hash)
-    expect(query[:results][0][:providedLocation][:location]).to eq("Salt Lake City, UT")
 
-    expect(query[:results][0][:locations][0][:latLng]).to be_a(Hash)
-    expect(query[:results][0][:locations][0][:latLng]).to eq({:lat=>40.76031, :lng=>-111.88822})
+    expect(query).to have_key(:current)
+    expect(query[:current]).to be_a(Hash)
+    expect(query[:current][:last_updated]).to eq("2024-09-22 13:30")
+    expect(query[:current][:temp_f]).to eq(73.9)
+    expect(query[:current][:humidity]).to eq(34)
+    expect(query[:current][:vis_miles]).to eq(9.0)
+
+
+    expect(query[:current][:condition]).to be_a(Hash)
+    expect(query[:current][:condition][:text]).to eq("Partly cloudy")
+    expect(query[:current][:condition][:icon]).to eq("//cdn.weatherapi.com/weather/64x64/day/116.png")
+
+    expect(query[:current]).to_not have_key(:hour)
+    expect(query[:current]).to_not have_key(:temp_c)
   end
 end

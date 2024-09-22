@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2024-09-22T13:47:49-06:00">2024-09-22T13:47:49-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2024-09-22T14:22:09-06:00">2024-09-22T14:22:09-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,14 +23,14 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="red">
-  44.44%
+  41.67%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
        <span class="red">
-         0.44
+         0.42
        </span>
     </span> hits/line
     )
@@ -43,11 +43,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>9</b> relevant lines,
-    <span class="green"><b>4</b> lines covered</span> and
-    <span class="red"><b>5</b> lines missed. </span>
+    <b>12</b> relevant lines,
+    <span class="green"><b>5</b> lines covered</span> and
+    <span class="red"><b>7</b> lines missed. </span>
     (<span class="red">
-  44.44%
+  41.67%
 </span>
 )
   </div>
@@ -71,13 +71,13 @@
       <tbody>
         
           <tr class="t-file">
-            <td class="strong t-file__name"><a href="#85a83a40e59cd725d0f144890228e3cfc6e4cb59" class="src_link" title="app/services/map_quest_api_service.rb">app/services/map_quest_api_service.rb</a></td>
-            <td class="red strong cell--number t-file__coverage">44.44 %</td>
-            <td class="cell--number">17</td>
-            <td class="cell--number">9</td>
-            <td class="cell--number">4</td>
+            <td class="strong t-file__name"><a href="#daa19acadc9b5ec1bcc308fb2d4c1b55c984685e" class="src_link" title="app/services/weather_api_service.rb">app/services/weather_api_service.rb</a></td>
+            <td class="red strong cell--number t-file__coverage">41.67 %</td>
+            <td class="cell--number">30</td>
+            <td class="cell--number">12</td>
             <td class="cell--number">5</td>
-            <td class="cell--number">0.44</td>
+            <td class="cell--number">7</td>
+            <td class="cell--number">0.42</td>
             
           </tr>
         
@@ -98,12 +98,12 @@
 
       <div class="source_files">
       
-        <div class="source_table" id="85a83a40e59cd725d0f144890228e3cfc6e4cb59">
+        <div class="source_table" id="daa19acadc9b5ec1bcc308fb2d4c1b55c984685e">
   <div class="header">
-    <h3>app/services/map_quest_api_service.rb</h3>
+    <h3>app/services/weather_api_service.rb</h3>
     <h4>
       <span class="red">
-  44.44%
+  41.67%
 </span>
 
       lines covered
@@ -112,9 +112,9 @@
     
 
     <div class="t-line-summary">
-      <b>9</b> relevant lines.
-      <span class="green"><b>4</b> lines covered</span> and
-      <span class="red"><b>5</b> lines missed.</span>
+      <b>12</b> relevant lines.
+      <span class="green"><b>5</b> lines covered</span> and
+      <span class="red"><b>7</b> lines missed.</span>
     </div>
 
     
@@ -131,7 +131,7 @@
 
             
 
-            <code class="ruby">class MapQuestApiService</code>
+            <code class="ruby">class WeatherApiService</code>
           </li>
         </div>
       
@@ -153,7 +153,7 @@
 
             
 
-            <code class="ruby">  BASE_URL = &quot;https://www.mapquestapi.com&quot;</code>
+            <code class="ruby">  BASE_URL = &quot;http://api.weatherapi.com&quot;</code>
           </li>
         </div>
       
@@ -175,7 +175,7 @@
 
             
 
-            <code class="ruby">  def self.connection </code>
+            <code class="ruby">  def self.connection</code>
           </li>
         </div>
       
@@ -191,24 +191,24 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="7">
+          <li class="missed" data-hits="0" data-linenumber="7">
             
             
 
             
 
-            <code class="ruby">      # faraday.params[&#39;key&#39;] = Rails.application.credentials.map_quest[:key]</code>
+            <code class="ruby">      faraday.headers[&#39;X-Api-Key&#39;] = Rails.application.credentials.weather[:key]</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="8">
+          <li class="never" data-hits="" data-linenumber="8">
             
             
 
             
 
-            <code class="ruby">      faraday.headers[&#39;X-Api-Key&#39;] = Rails.application.credentials.map_quest[:key]</code>
+            <code class="ruby">      # faraday.params[&#39;key&#39;] = Rails.application.credentials.weather[:key]</code>
           </li>
         </div>
       
@@ -263,7 +263,7 @@
 
             
 
-            <code class="ruby">  def self.get_lat_long(location)</code>
+            <code class="ruby">  def self.get_current_weather(location)</code>
           </li>
         </div>
       
@@ -274,12 +274,23 @@
 
             
 
-            <code class="ruby">    response = connection.get(&quot;/geocoding/v1/address?key=#{Rails.application.credentials.map_quest[:key]}&amp;location=#{location}&quot;)</code>
+            <code class="ruby">    response = connection.get(&quot;/v1/current.json?key=#{Rails.application.credentials.weather[:key]}&amp;q=#{location}&quot;) # do I need to send it in query params because of line 6-8?</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="15">
+          <li class="never" data-hits="" data-linenumber="15">
+            
+            
+
+            
+
+            <code class="ruby">    </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="16">
             
             
 
@@ -290,7 +301,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="16">
+          <li class="never" data-hits="" data-linenumber="17">
             
             
 
@@ -301,7 +312,139 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="17">
+          <li class="never" data-hits="" data-linenumber="18">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="19">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def self.get_five_days_forcast(location)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="20">
+            
+            
+
+            
+
+            <code class="ruby">    response = connection.get(&quot;/v1/forecast.json?key=#{Rails.application.credentials.weather[:key]}&amp;q=#{location}&amp;days=5&quot;) # do I need to send it in query params because of line 6-8?</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="21">
+            
+            
+
+            
+
+            <code class="ruby">    </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="22">
+            
+            
+
+            
+
+            <code class="ruby">    JSON.parse(response.body, symbolize_names: true) #just use this to get whatever hourly forcast you want based off json response</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="23">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="24">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="25">
+            
+            
+
+            
+
+            <code class="ruby">  # def self.hourly_forcast(location)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="26">
+            
+            
+
+            
+
+            <code class="ruby">  #   response = connection.get(&quot;/v1/forecast.json?key=#{Rails.application.credentials.weather[:key]}&amp;q=#{location}&amp;hour=24&quot;) # do I need to send it in query params because of line 6-8?</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="27">
+            
+            
+
+            
+
+            <code class="ruby">    </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="28">
+            
+            
+
+            
+
+            <code class="ruby">  #   JSON.parse(response.body, symbolize_names: true)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="29">
+            
+            
+
+            
+
+            <code class="ruby">  # end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="30">
             
             
 

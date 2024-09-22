@@ -9,6 +9,7 @@ RSpec.describe MapQuestApiService do
 
     expect(query).to have_key(:info)
     expect(query[:info]).to be_a(Hash)
+    expect(query[:info][:statuscode]).to eq(0)
 
     expect(query).to have_key(:results)
     expect(query[:results]).to be_a(Array)

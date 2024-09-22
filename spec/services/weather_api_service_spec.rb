@@ -16,14 +16,14 @@ RSpec.describe WeatherApiService do
     expect(query[:location][:region]).to eq("Utah")
     expect(query[:location][:lat]).to eq(40.76)
     expect(query[:location][:lon]).to eq(-111.89)
-    expect(query[:location][:localtime]).to eq("2024-09-22 13:31")
+    expect(query[:location][:localtime]).to eq("2024-09-22 16:08")
 
 
     expect(query).to have_key(:current)
     expect(query[:current]).to be_a(Hash)
-    expect(query[:current][:last_updated]).to eq("2024-09-22 13:30")
-    expect(query[:current][:temp_f]).to eq(73.9)
-    expect(query[:current][:humidity]).to eq(34)
+    expect(query[:current][:last_updated]).to eq("2024-09-22 16:00")
+    expect(query[:current][:temp_f]).to eq(77.5)
+    expect(query[:current][:humidity]).to eq(29)
     expect(query[:current][:vis_miles]).to eq(9.0)
 
 

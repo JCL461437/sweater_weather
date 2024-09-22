@@ -4,7 +4,8 @@ class MapQuestApiService
 
   def self.conn 
     Faraday.new(url: BASE_URL) do |faraday|
-      faraday.params['key'] = Rails.application.credentials.map_quest[:key]
+      # faraday.params['key'] = Rails.application.credentials.map_quest[:key]
+      faraday.headers['X-Api-Key'] = Rails.application.credentials.map_quest[:key]
       faraday.adapter Faraday.default_adapter
     end
   end

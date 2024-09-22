@@ -1,14 +1,14 @@
 require 'rails_helper'
 
-RSpec.describe MapQuestApiService do
-  it 'can #get_lat_long' do
+RSpec.describe WeatherApiService do
+  it 'can #get_current_weather' do
     json_response = File.read('spec/fixtures/slc_lat_long.json')
     stub_request(:get, "/geocoding/v1/address?key=#{Rails.application.credentials.map_quest[:key]}&location=Salt Lake City, UT").to_return(status: 200, body: json_response)
     query = JSON.parse(json_response, symbolize_names: true)
     # query = MapQuestApiService.get_lat_long("Salt Lake City, UT")
   
     expect(query).to be_a Hash
-    
+
     expect(query).to have_key(:info)
     expect(query[:info]).to be_a(Hash)
     expect(query[:info][:statuscode]).to eq(0)

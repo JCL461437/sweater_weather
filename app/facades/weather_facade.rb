@@ -12,7 +12,7 @@ class WeatherFacade
     end
   end
 
-  # def get_hourly_forecast(lat_long)
+  # def hourly_forecast(lat_long)
   #   json = WeatherApiService.get_five_days_forecast(lat_long) # hitting methods in service
 
   #   json[:forecast][:forecastday][0][:hour].map do |forecasted_hour|

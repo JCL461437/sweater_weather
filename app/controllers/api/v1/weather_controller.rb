@@ -7,10 +7,10 @@ class Api:V1:WeatherController < ApplicationController
     lat_long =  MapQuestApiService.get_lat_long(location)
 
     # Retrieves current weather and forcast for hourly and five days using Weather API
-    @current_weather = WeatherApiService.current_weather(lat_long)
-    @five_days_forcast = WeatherApiService.get_five_days_forcast(lat_long)
+    current_weather = WeatherFacade.new.current_weather(lat_long)
+    five_days_forcast = WeatherFacade.new.five_days_forecast(lat_long)
 
     render json: CurrentWeatherSerializer.all_weather(@current_weather)
-    render json: FiveDaysForcastWeatherSerializer.all_weather(@five_days_forcast)
+    render json: FiveDaysForecastWeatherSerializer.all_weather(@five_days_forecast)
   end
 end

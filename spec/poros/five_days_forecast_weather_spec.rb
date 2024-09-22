@@ -1,0 +1,3 @@
+class FiveDaysForecastedWeather
+  
+end

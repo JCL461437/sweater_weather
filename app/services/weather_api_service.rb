@@ -21,4 +21,10 @@ class WeatherApiService
     
     JSON.parse(response.body, symbolize_names: true)
   end
+
+  def self.hourly_forcast(location)
+    response = connection.get("/v1/forecast.json?key=#{Rails.application.credentials.weather[:key]}&q=#{location}&hour=24") # do I need to send it in query params because of line 6-8?
+    
+    JSON.parse(response.body, symbolize_names: true)
+  end
 end

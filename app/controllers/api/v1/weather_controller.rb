@@ -9,8 +9,8 @@ class Api:V1:WeatherController < ApplicationController
     # Retrieves current weather and forcast for hourly and five days using Weather API
     @current_weather = WeatherApiService.current_weather(lat_long)
     @five_days_forcast = WeatherApiService.get_five_days_forcast(lat_long)
-    # @hourly_weather = WeatherApiService.get_hourly_forcast
 
     render json: CurrentWeatherSerializer.all_weather(@current_weather)
+    render json: FiveDaysForcastWeatherSerializer.all_weather(@five_days_forcast)
   end
 end

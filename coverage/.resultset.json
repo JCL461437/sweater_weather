@@ -1,74 +1,30 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/janlehigh/turing/3mod/projects/sweater_weather/app/channels/application_cable/channel.rb": {
+      "/Users/janlehigh/turing/3mod/projects/sweater_weather/app/services/map_quest_api_service.rb": {
         "lines": [
+          1,
+          null,
+          1,
+          null,
+          1,
           0,
+          null,
           0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/janlehigh/turing/3mod/projects/sweater_weather/app/channels/application_cable/connection.rb": {
-        "lines": [
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/janlehigh/turing/3mod/projects/sweater_weather/app/controllers/api/v0/controller.rb": {
-        "lines": [
-
-        ],
-        "branches": {
-        }
-      },
-      "/Users/janlehigh/turing/3mod/projects/sweater_weather/app/controllers/application_controller.rb": {
-        "lines": [
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/janlehigh/turing/3mod/projects/sweater_weather/app/jobs/application_job.rb": {
-        "lines": [
           0,
           null,
           null,
           null,
+          1,
+          1,
           null,
+          0,
+          0,
           null,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/janlehigh/turing/3mod/projects/sweater_weather/app/mailers/application_mailer.rb": {
-        "lines": [
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/janlehigh/turing/3mod/projects/sweater_weather/app/models/application_record.rb": {
-        "lines": [
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
+          null
+        ]
       }
     },
-    "timestamp": 1726960916
+    "timestamp": 1727023663
   }
 }

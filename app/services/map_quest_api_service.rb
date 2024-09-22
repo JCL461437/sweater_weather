@@ -2,7 +2,7 @@ class MapQuestApiService
 
   BASE_URL = "https://www.mapquestapi.com"
 
-  def self.conn 
+  def self.connection 
     Faraday.new(url: BASE_URL) do |faraday|
       # faraday.params['key'] = Rails.application.credentials.map_quest[:key]
       faraday.headers['X-Api-Key'] = Rails.application.credentials.map_quest[:key]
@@ -11,9 +11,7 @@ class MapQuestApiService
   end
 
   def self.get_lat_long(location)
-    connection = Faraday.new(url: BASE_URL)
-
-    response = connection.get("geocoding/v1/address?key=#{Rails.application.credentials.map_quest[:key]}&location=#{location}")
+    response = connection.get("/geocoding/v1/address?key=#{Rails.application.credentials.map_quest[:key]}&location=#{location}")
     JSON.parse(response.body, symbolize_names: true)
   end
 end

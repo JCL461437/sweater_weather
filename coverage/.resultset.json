@@ -1,29 +1,16 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/janlehigh/turing/3mod/projects/sweater_weather/app/services/map_quest_api_service.rb": {
+      "/Users/janlehigh/turing/3mod/projects/sweater_weather/app/poros/current_weather.rb": {
         "lines": [
           1,
-          null,
           1,
           null,
-          1,
-          0,
-          null,
-          0,
-          0,
           null,
           null,
           null,
           1,
-          0,
-          0,
           null,
-          null
-        ]
-      },
-      "/Users/janlehigh/turing/3mod/projects/sweater_weather/spec/services/weather_api_service_spec.rb": {
-        "lines": [
           1,
           null,
           1,
@@ -31,10 +18,6 @@
           1,
           1,
           1,
-          null,
-          null,
-          1,
-          null,
           1,
           1,
           null,
@@ -43,61 +26,16 @@
           1,
           1,
           1,
-          null,
-          null,
           1,
           1,
           1,
           1,
           1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/Users/janlehigh/turing/3mod/projects/sweater_weather/app/services/weather_api_service.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          null,
-          1,
-          0,
-          0,
-          null,
-          0,
-          null,
-          null,
-          null,
-          1,
-          0,
-          null,
-          0,
-          null,
-          null,
-          1,
-          0,
-          null,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
           null,
           null
         ]
       }
     },
-    "timestamp": 1727036598
+    "timestamp": 1727044088
   }
 }

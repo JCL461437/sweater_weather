@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "GET /api/v1/book-search?location=denver,co&quantity=5 endpoint" do
   describe 'happy path' do
-    xit 'can return a payload with city and quantity information' do
+    it 'can return a payload with city and quantity information' do
       
       lat_long = "40.76031,-111.88822"
       location = "Salt Lake City, UT"

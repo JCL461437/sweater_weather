@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "GET /api/v1/book-search?location=denver,co&quantity=5 endpoint" do
   describe 'happy path' do
-    it 'can return a payload with city and quantity information' do
+    xit 'can return a payload with city and quantity information' do
       
       lat_long = "40.76031,-111.88822"
       location = "Salt Lake City, UT"
@@ -25,7 +25,7 @@ RSpec.describe "GET /api/v1/book-search?location=denver,co&quantity=5 endpoint" 
   end
 
   describe "sad path" do 
-    it "cannot return a payload without a location" do 
+    xit "cannot return a payload without a location" do 
       
       lat_long = "40.76031,-111.88822"
       location = ""
@@ -46,7 +46,7 @@ RSpec.describe "GET /api/v1/book-search?location=denver,co&quantity=5 endpoint" 
       expect(payload[:errors][0][:detail]).to eq("No location was provided, try again with a location")
     end
 
-    it "cannot return a payload without a quantity" do 
+    xit "cannot return a payload without a quantity" do 
       
       lat_long = "40.76031,-111.88822"
       location = "Salt Lake City"

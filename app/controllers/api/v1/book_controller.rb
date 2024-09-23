@@ -15,7 +15,7 @@ class Api::V1::BookController < ApplicationController
       lat_long = MapQuestFacade.new.lat_long(location)
       weather_forecast = WeatherFacade.new.current_weather(lat_long)
       
-      render json: BookWeatherSerializer.books_and_weather(books, weather_forecast)
+      render json: BookWeatherSerializer.books_and_weather(books, weather_forecast), status: 201
     end
   end
 end

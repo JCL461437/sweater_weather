@@ -6,7 +6,7 @@ RSpec.describe "GET /api/v1/weather?location=users_location endpoint" do
       
       location = "salt lake city, ut"
 
-      get "/api/v1/weather?location=#{location}"
+      get "/api/v1/forecast?location=#{location}"
 
       expect(response).to have_http_status(:success)
 
@@ -52,7 +52,7 @@ RSpec.describe "GET /api/v1/weather?location=users_location endpoint" do
       
       location = ""
 
-      get "/api/v1/weather?location=#{location}"
+      get "/api/v1/forecast?location=#{location}"
 
       expect(response).to have_http_status(:unprocessable_entity)
       

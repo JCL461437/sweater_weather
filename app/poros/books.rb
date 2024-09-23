@@ -4,12 +4,12 @@ class Books
   def initialize(data)
     data = data.is_a?(Hash) ? data : {}
     
-    @total_books_found = data['numFound']
-    @books = data['docs'].map do |book|
+    @total_books_found = data[:numFound]
+    @books = data[:docs].map do |book|
       {
-        isbn: book['isbn'] || ["ISBN value not available"],
-        title: book['title'] || "Title not available",
-        publisher: book['publisher'] || ["Publisher not available"]
+        isbn: book[:isbn] || ["ISBN value not available"],
+        title: book[:title] || "Title not available",
+        publisher: book[:publisher] || ["Publisher not available"]
       }
     end
   end

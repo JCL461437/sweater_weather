@@ -24,7 +24,7 @@ RSpec.describe "GET /api/v1/book-search?location=denver,co&quantity=5 endpoint" 
       
       payload = BookWeatherSerializer.books_and_weather(books, weather_forecast)
 
-      expect(payload).to eq(File.read('spec/fixtures/book_weather.json'))
+      expect(payload).to eq(JSON.parse(File.read('spec/fixtures/raw_book_weather.json'), symbolize_names: true))
     end
   end
 
@@ -47,7 +47,7 @@ RSpec.describe "GET /api/v1/book-search?location=denver,co&quantity=5 endpoint" 
       
       payload = ParametersErrorSerializer.location_error_json
 
-      expect(payload).to_not eq(File.read('spec/fixtures/book_weather.json'))
+      expect(payload).to_not eq(File.read('spec/fixtures/raw_book_weather.json'))
 
       expect(payload[:errors]).to be_an(Array)
       expect(payload[:errors][0][:status]).to eq("422")
@@ -72,7 +72,7 @@ RSpec.describe "GET /api/v1/book-search?location=denver,co&quantity=5 endpoint" 
       
       payload = ParametersErrorSerializer.quantity_error_json
 
-      expect(payload).to_not eq(File.read('spec/fixtures/book_weather.json'))
+      expect(payload).to_not eq(File.read('spec/fixtures/raw_book_weather.json'))
 
       expect(payload[:errors]).to be_an(Array)
       expect(payload[:errors][0][:status]).to eq("422")

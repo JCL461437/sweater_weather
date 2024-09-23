@@ -5,13 +5,13 @@ class User < ApplicationRecord
 
   has_secure_password
 
-  before_create :api_key
+  before_create :create_api_key
 
   has_secure_password
 
   private
   
-  def api_key
+  def create_api_key
     self.api_key = SecureRandom.hex
   end
 end

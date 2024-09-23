@@ -1,0 +1,24 @@
+{
+    "location": {
+        "name": "Salt Lake City",
+        "region": "Utah",
+        "country": "United States of America",
+        "lat": 40.76,
+        "lon": -111.89,
+        "tz_id": "America/Denver",
+        "localtime_epoch": 1727042936,
+        "localtime": "2024-09-22 16:08"
+    },
+    "current": {
+        "last_updated": "2024-09-22 16:00",
+        "temp_f": 77.5,
+        "condition": {
+            "text": "Partly cloudy",
+            "icon": "//cdn.weatherapi.com/weather/64x64/day/116.png"
+        },
+        "humidity": 29,
+        "feelslike_f": 77.9,
+        "vis_miles": 9.0,
+        "uv": 6.0
+    }
+}

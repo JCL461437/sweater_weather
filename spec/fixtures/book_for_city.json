@@ -1,0 +1,243 @@
+{
+  "numFound": 1999,
+  "start": 0,
+  "numFoundExact": true,
+  "docs": [
+      {
+          "author_key": [
+              "OL118831A"
+          ],
+          "author_name": [
+              "Harold Arthur Hoffmeister"
+          ],
+          "ebook_access": "no_ebook",
+          "ebook_count_i": 0,
+          "edition_count": 1,
+          "edition_key": [
+              "OL5829960M"
+          ],
+          "first_publish_year": 1961,
+          "has_fulltext": false,
+          "key": "/works/OL1175714W",
+          "language": [
+              "eng"
+          ],
+          "last_modified_i": 1601281102,
+          "lcc": [
+              "F--0834.00000000.S2 H7"
+          ],
+          "lccn": [
+              "61019016"
+          ],
+          "number_of_pages_median": 63,
+          "oclc": [
+              "9173744"
+          ],
+          "public_scan_b": false,
+          "publish_date": [
+              "1961"
+          ],
+          "publish_place": [
+              "Garden City, N.Y"
+          ],
+          "publish_year": [
+              1961
+          ],
+          "publisher": [
+              "N. Doubleday"
+          ],
+          "seed": [
+              "/books/OL5829960M",
+              "/works/OL1175714W",
+              "/authors/OL118831A",
+              "/subjects/place:salt_lake_city_(utah)"
+          ],
+          "title": "Salt Lake City",
+          "title_suggest": "Salt Lake City",
+          "title_sort": "Salt Lake City",
+          "type": "work",
+          "place": [
+              "Salt Lake City (Utah)"
+          ],
+          "publisher_facet": [
+              "N. Doubleday"
+          ],
+          "place_key": [
+              "salt_lake_city_(utah)"
+          ],
+          "_version_": 1795849441710702592,
+          "place_facet": [
+              "Salt Lake City (Utah)"
+          ],
+          "lcc_sort": "F--0834.00000000.S2 H7",
+          "author_facet": [
+              "OL118831A Harold Arthur Hoffmeister"
+          ]
+      },
+      {
+          "author_key": [
+              "OL921047A"
+          ],
+          "author_name": [
+              "Thomas Babe"
+          ],
+          "cover_edition_key": "OL11421572M",
+          "cover_i": 5134087,
+          "ddc": [
+              "812.54"
+          ],
+          "ebook_access": "no_ebook",
+          "ebook_count_i": 0,
+          "edition_count": 2,
+          "edition_key": [
+              "OL4155429M",
+              "OL11421572M"
+          ],
+          "first_publish_year": 1980,
+          "format": [
+              "Paperback"
+          ],
+          "has_fulltext": false,
+          "isbn": [
+              "9780822209829",
+              "0822209829"
+          ],
+          "key": "/works/OL4556314W",
+          "language": [
+              "eng"
+          ],
+          "last_modified_i": 1672764285,
+          "lcc": [
+              "PS-3552.00000000.A18 S24"
+          ],
+          "lccn": [
+              "80135560"
+          ],
+          "number_of_pages_median": 49,
+          "oclc": [
+              "6908355"
+          ],
+          "public_scan_b": false,
+          "publish_date": [
+              "1980",
+              "January 1, 1998"
+          ],
+          "publish_place": [
+              "New York, N.Y"
+          ],
+          "publish_year": [
+              1980,
+              1998
+          ],
+          "publisher": [
+              "Dramatists Play Service",
+              "Dramatist's Play Service"
+          ],
+          "seed": [
+              "/books/OL4155429M",
+              "/books/OL11421572M",
+              "/works/OL4556314W",
+              "/authors/OL921047A",
+              "/subjects/drama",
+              "/subjects/labor_movement"
+          ],
+          "title": "Salt Lake City Skyline",
+          "title_suggest": "Salt Lake City Skyline",
+          "title_sort": "Salt Lake City Skyline",
+          "type": "work",
+          "id_goodreads": [
+              "1493370"
+          ],
+          "id_librarything": [
+              "8936365"
+          ],
+          "subject": [
+              "Drama",
+              "Labor movement"
+          ],
+          "publisher_facet": [
+              "Dramatist's Play Service",
+              "Dramatists Play Service"
+          ],
+          "subject_facet": [
+              "Drama",
+              "Labor movement"
+          ],
+          "_version_": 1795918810655490049,
+          "lcc_sort": "PS-3552.00000000.A18 S24",
+          "author_facet": [
+              "OL921047A Thomas Babe"
+          ],
+          "subject_key": [
+              "drama",
+              "labor_movement"
+          ],
+          "ddc_sort": "812.54"
+      },
+      {
+          "author_key": [
+              "OL9339600A",
+              "OL9339601A",
+              "OL9339602A"
+          ],
+          "author_name": [
+              "Gary Topping",
+              "Melissa Coy Ferguson",
+              "Utah State Historical Society The"
+          ],
+          "cover_edition_key": "OL32885266M",
+          "cover_i": 11516607,
+          "ebook_access": "no_ebook",
+          "ebook_count_i": 0,
+          "edition_count": 1,
+          "edition_key": [
+              "OL32885266M"
+          ],
+          "first_publish_year": 2009,
+          "format": [
+              "hardcover"
+          ],
+          "has_fulltext": false,
+          "isbn": [
+              "9781531646356",
+              "1531646352"
+          ],
+          "key": "/works/OL24765621W",
+          "last_modified_i": 1668952177,
+          "number_of_pages_median": 130,
+          "public_scan_b": false,
+          "publish_date": [
+              "May 20, 2009"
+          ],
+          "publish_year": [
+              2009
+          ],
+          "publisher": [
+              "Arcadia Publishing Library Editions"
+          ],
+          "seed": [
+              "/books/OL32885266M",
+              "/works/OL24765621W",
+              "/authors/OL9339600A",
+              "/authors/OL9339601A",
+              "/authors/OL9339602A"
+          ],
+          "title": "Salt Lake City",
+          "title_suggest": "Salt Lake City",
+          "title_sort": "Salt Lake City",
+          "type": "work",
+          "publisher_facet": [
+              "Arcadia Publishing Library Editions"
+          ],
+          "_version_": 1795886710053142529,
+          "author_facet": [
+              "OL9339600A Gary Topping",
+              "OL9339601A Melissa Coy Ferguson",
+              "OL9339602A Utah State Historical Society The"
+          ]
+      }
+  ],
+  "num_found": 1999,
+  "q": "salt lake city",
+  "offset": null
+}

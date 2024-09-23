@@ -19,7 +19,7 @@ RSpec.describe BookService do
 
     expect(book_response).to have_key(:docs)
     expect(book_response[:docs]).to be_a Array
-    expect(book_response[:docs].count).to eq(3)
+    expect(book_response[:docs].count).to eq(3) # makes sure three books are returned
 
     expect(book_response[:docs][0]).to be_a Hash
 

@@ -1,0 +1,46 @@
+{
+  "data": {
+      "id": "null",
+      "type": "books",
+      "attributes": {
+          "destination": "Salt Lake City",
+          "forecast": {
+              "summary": "Partly cloudy",
+              "temperature": 71.1
+          },
+          "total_books_found": 1999,
+          "books": [
+              {
+                  "isbn": [
+                      "ISBN value not available"
+                  ],
+                  "title": "Salt Lake City",
+                  "publisher": [
+                      "N. Doubleday"
+                  ]
+              },
+              {
+                  "isbn": [
+                      "9780822209829",
+                      "0822209829"
+                  ],
+                  "title": "Salt Lake City Skyline",
+                  "publisher": [
+                      "Dramatists Play Service",
+                      "Dramatist's Play Service"
+                  ]
+              },
+              {
+                  "isbn": [
+                      "9781531646356",
+                      "1531646352"
+                  ],
+                  "title": "Salt Lake City",
+                  "publisher": [
+                      "Arcadia Publishing Library Editions"
+                  ]
+              }
+          ]
+      }
+  }
+}

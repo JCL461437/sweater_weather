@@ -3,13 +3,13 @@ class Api::V1::BookController < ApplicationController
     location = params[:location]
     quantity = params[:quantity]
 
-    if location == nil
+    if location.empty?
       render json: ParametersErrorSerializer.location_error_json, status: 422
-    elsif quantity == nil
+    elsif quantity.empty?
       render json: ParametersErrorSerializer.quantity_error_json, status: 422
     end
 
-    if location && quantity != nil
+    if location && quantity != location.empty? && quantity.empty?
       books = BookFacade.new.get_books(location, quantity)
 
       lat_long = MapQuestFacade.new.lat_long(location)

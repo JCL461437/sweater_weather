@@ -4,26 +4,47 @@ RSpec.describe "GET /api/v1/book-search?location=denver,co&quantity=5 endpoint" 
   describe 'happy path' do
     it 'can return a payload with city and quantity information' do
       
-      lat_long = "40.76031,-111.88822"
       location = "Salt Lake City, UT"
       quantity = "3"
-      
-      
-      json_weather_response = File.read('spec/fixtures/five_day_forcast_slc.json')
-      weather_response = JSON.parse(json_weather_response, symbolize_names: true)
-
-      json_book_response = File.read('spec/fixtures/book_for_city.json') # includes limit/quantity of 3
-      book_response = JSON.parse(json_book_response, symbolize_names: true)
       
       response = get "/api/v1/book-search?location=#{location}&quantity=#{quantity}"
 
       expect(response).to eq(201)
 
-      books = BookFacade.new.get_books(location, quantity)
-      lat_long = MapQuestFacade.new.lat_long(location)
-      weather_forecast = WeatherFacade.new.current_weather(lat_long)
+      payload = JSON.parse(response.body, symbolize_names: true)
+
+      expect(payload).to have_key(:data)
+      expect(payload[:data]).to have_key(:id)
+      expect(payload[:data][:id]).to eq('null') 
+      expect(payload[:data]).to have_key(:type)
+      expect(payload[:data][:type]).to eq('books')
+      expect(payload[:data]).to have_key(:attributes)
       
-      payload = BookWeatherSerializer.books_and_weather(books, weather_forecast)
+      expect(payload[:data][:attributes]).to have_key(:destination)
+      expect(payload[:data][:attributes][:destination]).to eq('Salt Lake City')
+
+      expect(payload[:data][:attributes]).to have_key(:forecast)
+      expect(payload[:data][:attributes][:forecast]).to have_key(:summary)
+      expect(payload[:data][:attributes][:forecast][:summary]).to be_a String
+      expect(payload[:data][:attributes][:forecast]).to have_key(:temperature)
+      expect(payload[:data][:attributes][:forecast][:temperature]).to be_an Float
+
+      expect(payload[:data][:attributes]).to have_key(:total_books_found)
+      expect(payload[:data][:attributes][:total_books_found]).to be_a Integer 
+
+      expect(payload[:data][:attributes]).to have_key(:books)
+      expect(payload[:data][:attributes][:books]).to be_an(Array)
+      expect(payload[:data][:attributes][:books].size).to be >= 1  # Ensure there are books
+      
+      payload_without_values = JSON.parse(File.read('spec/fixtures/raw_book_weather.json'), symbolize_names: true)
+
+      expect(payload_without_values[:data][:attributes][:books][0]).to have_key(:isbn)
+      expect(payload_without_values[:data][:attributes][:books][0]).to have_key(:title)
+      expect(payload_without_values[:data][:attributes][:books][0]).to have_key(:publisher)
+
+      expect(payload_without_values[:data][:attributes][:books][0][:isbn]).to include("ISBN value not available")
+      expect(payload_without_values[:data][:attributes][:books][0][:title]).to eq("Salt Lake City")
+      expect(payload_without_values[:data][:attributes][:books][0][:publisher]).to include("N. Doubleday")
 
       expect(payload).to eq(JSON.parse(File.read('spec/fixtures/raw_book_weather.json'), symbolize_names: true))
     end

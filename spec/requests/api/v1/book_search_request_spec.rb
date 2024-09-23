@@ -8,6 +8,7 @@ RSpec.describe "GET /api/v1/book-search?location=denver,co&quantity=5 endpoint" 
       location = "Salt Lake City, UT"
       quantity = "3"
       
+      
       json_weather_response = File.read('spec/fixtures/five_day_forcast_slc.json')
       weather_response = JSON.parse(json_weather_response, symbolize_names: true)
 

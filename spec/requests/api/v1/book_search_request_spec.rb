@@ -4,15 +4,17 @@ RSpec.describe "GET /api/v1/book-search?location=denver,co&quantity=5 endpoint" 
   describe 'happy path' do
     it 'can return a payload with city and quantity information' do
       
-      location = "Salt Lake City, UT"
+      location = "salt lake city"
       quantity = "3"
       
-      response = get "/api/v1/book-search?location=#{location}&quantity=#{quantity}"
 
-      expect(response).to eq(201)
+      response = get "/api/v1/book-search?location=#{location}&quantity=#{quantity}"
+      binding.pry
+      expect(response).to have_http_status(:success)
 
       payload = JSON.parse(response.body, symbolize_names: true)
 
+      binding.pry
       expect(payload).to have_key(:data)
       expect(payload[:data]).to have_key(:id)
       expect(payload[:data][:id]).to eq('null') 
@@ -53,52 +55,46 @@ RSpec.describe "GET /api/v1/book-search?location=denver,co&quantity=5 endpoint" 
   describe "sad path" do 
     it "cannot return a payload without a location" do 
       
-      lat_long = "40.76031,-111.88822"
       location = ""
       quantity = "3"
 
-      json_weather_response = File.read('spec/fixtures/five_day_forcast_slc.json')
-      weather_response = JSON.parse(json_weather_response, symbolize_names: true)
-
-      json_book_response = File.read('spec/fixtures/book_for_city.json') # includes limit/quantity of 3
-      book_response = JSON.parse(json_book_response, symbolize_names: true)
-
       response = get "/api/v1/book-search?location=#{location}&quantity=#{quantity}"
 
-      expect(response).to eq(404)
+      expect(response).to have_http_status(:unprocessable_entity)
       
-      payload = ParametersErrorSerializer.location_error_json
+      payload = JSON.parse(response.body, symbolize_names: true)
 
-      expect(payload).to_not eq(File.read('spec/fixtures/raw_book_weather.json'))
-
+      expect(payload).to have_key(:errors)
       expect(payload[:errors]).to be_an(Array)
-      expect(payload[:errors][0][:status]).to eq("422")
-      expect(payload[:errors][0][:detail]).to eq("No location was provided, try again with a location")
+      expect(payload[:errors].size).to eq(1)
+
+      error = payload[:errors][0]
+      expect(error).to have_key(:status)
+      expect(error[:status]).to eq('422')
+      expect(error).to have_key(:detail)
+      expect(error[:detail]).to eq("No location was provided, try again with a location")
     end
 
     it "cannot return a payload without a quantity" do 
       
-      lat_long = "40.76031,-111.88822"
       location = "Salt Lake City"
       quantity = ""
-
-      json_weather_response = File.read('spec/fixtures/five_day_forcast_slc.json')
-      weather_response = JSON.parse(json_weather_response, symbolize_names: true)
-
-      json_book_response = File.read('spec/fixtures/book_for_city.json') # includes limit/quantity of 3
-      book_response = JSON.parse(json_book_response, symbolize_names: true)
       
       response = get "/api/v1/book-search?location=#{location}&quantity=#{quantity}"
 
-      expect(response).to eq(404)
-      
-      payload = ParametersErrorSerializer.quantity_error_json
+      expect(response).to have_http_status(:unprocessable_entity)
 
-      expect(payload).to_not eq(File.read('spec/fixtures/raw_book_weather.json'))
+      payload = JSON.parse(response.body, symbolize_names: true)
 
+      expect(payload).to have_key(:errors)
       expect(payload[:errors]).to be_an(Array)
-      expect(payload[:errors][0][:status]).to eq("422")
-      expect(payload[:errors][0][:detail]).to eq("No quantity was provided, try again with a quantity")
+      expect(payload[:errors].size).to eq(1)
+
+      error = payload[:errors][0]
+      expect(error).to have_key(:status)
+      expect(error[:status]).to eq('422')
+      expect(error).to have_key(:detail)
+      expect(error[:detail]).to eq("No quantity was provided, try again with a quantity")
     end
   end
 end

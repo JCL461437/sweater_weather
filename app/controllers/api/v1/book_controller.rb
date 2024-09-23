@@ -4,10 +4,10 @@ class Api::V1::BookController < ApplicationController
     quantity = params[:quantity]
 
     if location.blank?
-      render json: ParametersErrorSerializer.location_error_json, status: :unprocessable_entity
+      render json: ParametersErrorSerializer.location_error_json, status: :bad_request
       return
     elsif quantity.blank?
-      render json: ParametersErrorSerializer.quantity_error_json, status: :unprocessable_entity
+      render json: ParametersErrorSerializer.quantity_error_json, status: :bad_request
       return
     end
       

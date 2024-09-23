@@ -1,5 +1,5 @@
 class Api::V1::BookController < ApplicationController
-  def book-search
+  def book_search
     location = params[:location]
     quantity = params[:quantity]
 

@@ -14,7 +14,6 @@ class Books
     end
   end
 
-  # allows us to call books attributes as if they were instance variables
   def isbn(index)
     @books[index][:isbn]
   end

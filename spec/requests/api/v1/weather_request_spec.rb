@@ -14,7 +14,7 @@ RSpec.describe "GET /api/v1/weather?location=users_location endpoint" do
 
       expect(payload).to have_key(:data)
       expect(payload[:data]).to have_key(:id)
-      expect(payload[:data][:id]).to be_nil # or you could expect it to eq('null') depending on your implementation
+      expect(payload[:data][:id]).to eq(nil) 
       expect(payload[:data]).to have_key(:type)
       expect(payload[:data][:type]).to eq('forecast')
       expect(payload[:data]).to have_key(:attributes)

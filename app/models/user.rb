@@ -1,17 +1,15 @@
 class User < ApplicationRecord
-  validates_presence_of :email, :password, :api_key
+  has_secure_password
   
-  validates_uniqueness_of :email, :api_key
-
-  has_secure_password
-
+  validates :email, presence: true, uniqueness: true
+  validates :password, presence: true
+  validates :api_key, presence: true, uniqueness: true
+  
   before_create :create_api_key
-
-  has_secure_password
 
   private
   
   def create_api_key
-    self.api_key = SecureRandom.hex
+    self.api_key = SecureRandom.hex(16)
   end
 end

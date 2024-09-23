@@ -1,7 +1,6 @@
 class Api::V1::WeatherController < ApplicationController
   def forecast  
     location = params[:location] # pulled from query params for `/api/v1/forecast?location=Salt Lake City, UT`
-    # {"lat":40.76031,"lng":-111.88822}
     if location.blank?
       render json: ParametersErrorSerializer.location_error_json, status: :unprocessable_entity
       return

@@ -1,10 +1,6 @@
 class FiveDaysForecastWeather
-  attr_reader :date,
-              :sunrise,
-              :sunset,
-              :max_temp,
-              :min_temp,
-              :condition_text,
+  attr_reader :date, :sunrise, :sunset,
+              :max_temp, :min_temp, :condition_text,
               :condition_icon
 
   def initialize(data)

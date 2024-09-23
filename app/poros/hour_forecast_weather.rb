@@ -1,5 +1,6 @@
 class HourForecastWeather
-  attr_reader :time, :temperature, :condition_text, :condition_icon
+  attr_reader :time, :temperature, 
+              :condition_text, :condition_icon
 
   def initialize(data)
     @time = data[:time].split.last

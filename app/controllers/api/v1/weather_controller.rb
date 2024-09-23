@@ -1,5 +1,5 @@
 class Api::V1::WeatherController < ApplicationController
-  def forcast  
+  def forecast  
     location = params[:location] # pulled from query params for `/api/v1/forecast?location=Salt Lake City, UT`
     # {"lat":40.76031,"lng":-111.88822}
 

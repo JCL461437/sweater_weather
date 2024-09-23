@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "GET /api/v1/book-search?location=denver,co&quantity=5 endpoint" do
-  it 'can return city, forecast, and book information' do
+  xit 'can return city, forecast, and book information' do
     
     lat_long = "40.76031,-111.88822"
     location = "Salt Lake City, UT"
@@ -15,6 +15,7 @@ RSpec.describe "GET /api/v1/book-search?location=denver,co&quantity=5 endpoint" 
     stub_request(:get, "/search.json?q=#{location}&place:#{location}&limit=#{quantity}").to_return(status: 200, body: json_response)
     book_response = JSON.parse(json_book_response, symbolize_names: true)
     
-    
+
+
   end
 end

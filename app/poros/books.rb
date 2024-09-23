@@ -6,10 +6,10 @@ class Books
     # Ensure data is a hash and not an array or other type
     data = data.is_a?(Hash) ? data : {}
 
-    @total_books_found
+    @total_books_found = 
     @books = 
     @isbn = 
-    @title
-    @publisher
+    @title = 
+    @publisher = 
   end
 end

@@ -27,7 +27,7 @@ RSpec.describe BookService do
     expect(book_response[:docs][0][:publisher]).to eq(["N. Doubleday"])
 
     expect(book_response[:docs][0]).to have_key(:title)
-    expect(book_response[:docs][0][:title]).to eq(["Salt Lake City"])
+    expect(book_response[:docs][0][:title]).to eq("Salt Lake City")
 
     expect(book_response[:docs][0]).to_not have_key(:isbn) #first book has no isbn, but second one does. 
 

@@ -24,11 +24,11 @@ RSpec.describe WeatherFacade do
   it "will make a HourForecastWeather poros from the json using the get_hourly_forecast method" do
     lat_long = "40.76031,-111.88822"
 
-    response = WeatherFacade.new.five_days_forecast(lat_long)
+    response = WeatherFacade.new.hourly_forecast(lat_long)
 
     expect(response).to be_a Array
 
-    expect(response[0]).to be_a HourForecastedWeather
+    expect(response[0]).to be_a HourForecastWeather
 
     expect(response.count).to eq 24
   end

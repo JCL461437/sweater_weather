@@ -53,7 +53,6 @@ RSpec.describe 'User Creation Request for POST /api/v1/users endpoint' do
 
       post "/api/v1/users", params: valid_user.to_json, headers: { 'CONTENT_TYPE' => 'application/json' }
 
-      # Attempt to create the user with invalid attributes
       post "/api/v1/users", params: invalid_user.to_json, headers: { 'CONTENT_TYPE' => 'application/json' }
 
       expect(User.last.email).to eq("theguy@theguy.com")  

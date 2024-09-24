@@ -10,8 +10,6 @@ class User < ApplicationRecord
   private
   
   def create_api_key
-    if self.api_key.nil?
-      self.api_key = SecureRandom.hex(16)
-    end
+    self.api_key ||= SecureRandom.hex(16)
   end
 end

@@ -11,7 +11,7 @@ RSpec.describe 'User Creation Request for POST /api/v1/users endpoint' do
       
       json_response = JSON.parse(response.body, symbolize_names: true)
 
-      expect(json_response).to have_http_status(:success)
+      expect(response).to have_http_status(:success)
 
       expect(json_response[:data]).to have_key(:attributes)
       expect(json_response[:data][:attributes]).to have_key(:email)
@@ -34,7 +34,7 @@ RSpec.describe 'User Creation Request for POST /api/v1/users endpoint' do
 
       json_response = JSON.parse(response.body, symbolize_names: true)
 
-      expect(json_response).to have_http_status(401)
+      expect(response).to have_http_status(401)
       expect(json_response[:errors][:status]).to eq.('401')
       expect(json_response[:errors][:detail]).to eq.('Invalid credentials, please re-enter and try again.')
     end
@@ -47,7 +47,7 @@ RSpec.describe 'User Creation Request for POST /api/v1/users endpoint' do
 
       json_response = JSON.parse(response.body, symbolize_names: true)
 
-      expect(json_response).to have_http_status(401)
+      expect(response).to have_http_status(401)
       expect(json_response[:errors][:status]).to eq.('401')
       expect(json_response[:errors][:detail]).to eq.('Invalid credentials, please re-enter and try again.')
     end

@@ -5,7 +5,7 @@ class Api::V1::SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       render json: UserSerializer.new(user)
     else
-      render json: LoginErrorSerializer.new, status: 401
+      render json: LoginErrorSerializer.new
     end
   end
 end

@@ -5,7 +5,7 @@ class JsonErrorSerializer
       errors: [
         {
           status: '422',
-          detail: "Those values to not belong to a valid account, try again."
+          detail: "Those values cannot create a valid account, try again."
         }
       ]
     }

@@ -1,4 +1,4 @@
-class Api::V1::WeatherController < ApplicationController
+class Api::V1::RoadTripController < ApplicationController
   def create
 
   end

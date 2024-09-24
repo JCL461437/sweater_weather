@@ -1,8 +1,10 @@
 class Api::V1::WeatherController < ApplicationController
   def forecast  
     location = params[:location] # pulled from query params for `/api/v1/forecast?location=Salt Lake City, UT`
-    # {"lat":40.76031,"lng":-111.88822}
-
+    if location.blank?
+      render json: ParametersErrorSerializer.location_error_json, status: :unprocessable_entity
+      return
+    end
     # turns location from query params into lat and long using Map Quest API
     lat_long = MapQuestFacade.new.lat_long(location)
     # Retrieves current weather and forcast for hourly and five days using Weather API

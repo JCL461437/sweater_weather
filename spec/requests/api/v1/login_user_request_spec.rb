@@ -27,25 +27,35 @@ RSpec.describe 'User Creation Request for POST /api/v1/users endpoint' do
     it 'will not log a user in with invalid email' do
       user = User.create!( email: "theman@theman.com", password: "themanspassword", password_confirmation: "themanspassword")
       invalid_email = { email: 'theman@theman.net', password: 'themanspassword' }
+      error_response = {
+        errors: {
+          status: '401',
+          detail: "Invalid credentials, please re-enter and try again."
+        }
+      }
 
       post "/api/v1/sessions", params: invalid_email.to_json, headers: { 'CONTENT_TYPE' => 'application/json' }
 
       json_response = JSON.parse(response.body, symbolize_names: true)
 
-      expect(json_response[:errors][:status]).to eq.('401')
-      expect(json_response[:errors][:detail]).to eq.('Invalid credentials, please re-enter and try again.')
+      expect(json_response).to eq(error_response)
     end
 
     it 'will not log a user in with invalid password' do
-      user = User.create!( email: "theman@theman.com", password: "themanspassword", password_confirmation: "themanspassword")
+      user = User.create!(email: "theman@theman.com", password: "themanspassword", password_confirmation: "themanspassword")
       invalid_password = { email: 'theman@theman.com', password: 'theGUYSpassword' }
-
+      error_response = {
+        errors: {
+          status: '401',
+          detail: "Invalid credentials, please re-enter and try again."
+        }
+      }
+    
       post "/api/v1/sessions", params: invalid_password.to_json, headers: { 'CONTENT_TYPE' => 'application/json' }
-
+    
       json_response = JSON.parse(response.body, symbolize_names: true)
-      
-      expect(json_response[:errors][:status]).to eq.('401')
-      expect(json_response[:errors][:detail]).to eq.('Invalid credentials, please re-enter and try again.')
+    
+      expect(json_response).to eq(error_response)
     end
   end
 end

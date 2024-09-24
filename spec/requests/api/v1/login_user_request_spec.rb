@@ -8,7 +8,8 @@ RSpec.describe 'User Creation Request for POST /api/v1/users endpoint' do
       email_password = { email: 'theman@theman.com', password: 'themanspassword' }
 
       post "/api/v1/sessions", params: email_password.to_json, headers: { 'CONTENT_TYPE' => 'application/json' }
-      json_response = JSON.parse(json_response, symbolize_names: true)
+      
+      json_response = JSON.parse(response.body, symbolize_names: true)
 
       expect(json_response).to have_http_status(:success)
 
@@ -31,7 +32,7 @@ RSpec.describe 'User Creation Request for POST /api/v1/users endpoint' do
 
       post "/api/v1/sessions", params: invalid_email.to_json, headers: { 'CONTENT_TYPE' => 'application/json' }
 
-      json_response = JSON.parse(json_response, symbolize_names: true)
+      json_response = JSON.parse(response.body, symbolize_names: true)
 
       expect(json_response).to have_http_status(401)
       expect(json_response[:errors][:status]).to eq.('401')
@@ -44,7 +45,7 @@ RSpec.describe 'User Creation Request for POST /api/v1/users endpoint' do
 
       post "/api/v1/sessions", params: invalid_password.to_json, headers: { 'CONTENT_TYPE' => 'application/json' }
 
-      json_response = JSON.parse(json_response, symbolize_names: true)
+      json_response = JSON.parse(response.body, symbolize_names: true)
 
       expect(json_response).to have_http_status(401)
       expect(json_response[:errors][:status]).to eq.('401')

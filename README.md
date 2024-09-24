@@ -20,7 +20,36 @@ Sweater Weather has a variety endpoints for client consumption. There JSON paylo
 ## `GET /api/v1/forecast?location=chosen_location`
 To get a valid response, you must provide this endpoints query param `location` with a valid location. For instance, `location=new york city, ny`, `london`, and `location=Hong Kong` are all valid requests. 
 
-Leaving the field empty OR entering an invalid location will result in an error. 
+Leaving the field empty OR entering an invalid location will result in an error. The resulting json response will look like this: 
+` {
+  "data": {
+    "id": null,
+    "type": "forecast",
+    "attributes": {
+      "current_weather": {
+        "last_updated": "2023-04-07 16:30",
+        "temperature": 55.0,
+        etc
+      },
+      "daily_weather": [
+        {
+          "date": "2023-04-07",
+          "sunrise": "07:13 AM",
+          etc
+        },
+        {...} etc
+      ],
+      "hourly_weather": [
+        {
+          "time": "14:00",
+          "temperature": 54.5,
+          etc
+        },
+        {...} etc
+      ]
+    }
+  }
+}`
 
 ## `POST /api/v1/road_trip`
 

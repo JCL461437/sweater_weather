@@ -5,4 +5,9 @@ class MapQuestFacade
     long = json[:results][0][:locations][0][:latLng][:lng]
     lat_long = "#{lat},#{long}"
   end
+
+  def directions(location, destination)
+    json = MapQuestApiService.get_directions(location, destination)
+    Directions.new(json)
+  end
 end

@@ -7,6 +7,7 @@ class Api::V1::RoadTripController < ApplicationController
 
     MapQuestFacade.new.directions(origin, destination)
 
+    
   end
 
   private

@@ -14,4 +14,9 @@ class MapQuestApiService
     response = connection.get("/geocoding/v1/address?key=#{Rails.application.credentials.map_quest[:key]}&location=#{location}")
     JSON.parse(response.body, symbolize_names: true)
   end
+
+  def self.get_directions(location, destination)
+    response = connection.get("/directions/v2/route?key=#{Rails.application.credentials.map_quest[:key]}&from=#{location}&to=#{destination}")
+    JSON.parse(response.body, symbolize_names: true)
+  end
 end

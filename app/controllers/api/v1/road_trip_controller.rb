@@ -5,9 +5,9 @@ class Api::V1::RoadTripController < ApplicationController
     origin = params[:origin]
     destination = params[:destination]
 
-    MapQuestFacade.new.directions(origin, destination)
+    road_trip = MapQuestFacade.new.directions(origin, destination)
 
-    
+    RoadTripSerializer.new(road_trip)
   end
 
   private

@@ -15,8 +15,8 @@ class MapQuestApiService
     JSON.parse(response.body, symbolize_names: true)
   end
 
-  def self.get_directions(location, destination)
-    response = connection.get("/directions/v2/route?key=#{Rails.application.credentials.map_quest[:key]}&from=#{location}&to=#{destination}")
+  def self.get_directions(origin, destination)
+    response = connection.get("/directions/v2/route?key=#{Rails.application.credentials.map_quest[:key]}&from=#{origin}&to=#{destination}")
     JSON.parse(response.body, symbolize_names: true)
   end
 end

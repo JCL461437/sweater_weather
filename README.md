@@ -20,10 +20,28 @@ Sweater Weather has a variety endpoints for client consumption. There JSON paylo
 ## `GET /api/v1/forecast?location=chosen_location`
 To get a valid response, you must provide this endpoints query param `location` with a valid location. For instance, `location=new york city, ny`, `london`, and `location=Hong Kong` are all valid requests. 
 
-Leaving the field empty OR entering an invalid location will result in an error. The resulting json response will look like this: 
+Leaving the field empty OR entering an invalid location will result in an error. 
+
+The resulting json response for a successful request will look like this: 
 <img width="464" alt="Screenshot 2024-09-24 at 9 58 46 AM" src="https://github.com/user-attachments/assets/5ff0f6b7-e58b-4d0b-a705-e3a3ae76f977">
 
-## `POST /api/v1/road_trip`
+## `POST /api/v1/users`
+To get a valid response, you must provide this endpoint with a JSON payload in the body of your request. The format of this request should looks as follows:
+<img width="396" alt="Screenshot 2024-09-25 at 8 44 12 AM" src="https://github.com/user-attachments/assets/58daa274-2b8d-442d-aea5-56b78f5ca9e4">
+
+If any of the keys in this request payload are not filled with valid values you will recieve an error.
+
+A successful response will return the following JSON: 
+<img width="480" alt="Screenshot 2024-09-25 at 8 44 22 AM" src="https://github.com/user-attachments/assets/679042ba-1867-4627-b034-cab5afa1abe7">
+
+## `POST /api/v1/sessions`
+To get a valid response, you must provide this endpoint with a JSON payload in the body of your request. The format of this request should looks as follows:
+<img width="364" alt="Screenshot 2024-09-25 at 8 46 48 AM" src="https://github.com/user-attachments/assets/884dad40-20d7-466c-be42-038b15c4ccca">
+
+If any of the keys in this request payload are not filled with valid values you will recieve an error.
+
+A successful response will return the following JSON: 
+<img width="479" alt="Screenshot 2024-09-25 at 8 46 55 AM" src="https://github.com/user-attachments/assets/87739905-9c36-4707-a83f-75b42399453a">
 
 ## Additional Information
 * Ruby version: 3.2.2
